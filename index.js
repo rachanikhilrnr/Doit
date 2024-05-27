@@ -26,5 +26,7 @@ app.get("", (req,res) => {
 })
 
 app.get("/students", (req,res) => {
-    res.json("WELCOME ALL STUDENTS")
+    studentModel.find({})
+    .then(stds => res.json(stds))
+    .catch(err => res.json(err))
 })
